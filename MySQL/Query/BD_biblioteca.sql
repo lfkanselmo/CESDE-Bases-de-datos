@@ -1,5 +1,6 @@
 /*Creacion base de datos*/
 create database biblioteca
+go
 use biblioteca
 
 /*crear tabla de Editorial*/
