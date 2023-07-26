@@ -6,15 +6,15 @@ use biblioteca
 /*crear tabla de Editorial*/
 create table editorial(
 id int primary key not null,
-nombre varchar(30) not null
+nombre nvarchar(30) not null
 )
 
 /*crear tabla de Libros*/
 create table libro(
 id int primary key not null,
-titulo varchar(30) not null,
+titulo nvarchar(30) not null,
 ideditorial int not null,
-area varchar(30)
+area nvarchar(30)
 foreign key (ideditorial) references editorial(id)
 )
 
@@ -38,7 +38,7 @@ create table lector(
 idLector int primary key not null,
 dni int not null,
 direccion nvarchar(50),
-carrera varchar(30),
+carrera nvarchar(30),
 edad tinyint,
 telefono char(10)
 )

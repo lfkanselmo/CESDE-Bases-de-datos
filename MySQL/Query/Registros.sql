@@ -1,3 +1,5 @@
+use biblioteca
+
 insert into autor (idAutor, nombre, nacionalidad)
 values 
 (100001, 'John Jons','Noruega'),
@@ -29,18 +31,18 @@ values
 
 insert lector(idLector,dni,direccion,carrera,edad,telefono)
 values
-(300001, 1000151617,'carrera 23 #54-12','Medicina',25,314851169),
-(300002, 1000151617,'calle 14 #75-19','Ingenieria',25,3033594669),
-(300003, 1000151617,'calle 45 #25-14','Derecho',25,3115696621),
-(300004, 1000151617,'calle 85 #26-41','Desarrollo Software',25,3007843211),
-(300005, 1000151617,'carrera 120 #73-89','Medicina',25,32186947219),
-(300006, 1000151617,'carrera 6 #43-15','Ingenieria',25,3236946514),
-(300007, 1000151617,'calle 78 #51-82','Medicina',25,3189665542),
-(300008, 1000151617,'carrera 10 #17-72','Diseño Grafico',25,3145683669),
-(300009, 1000151617,'calle 69 #10-36','Desarrollo Software',25,3148515669),
-(300010, 1000151617,'carrera 96 #78-94','Medicina',25,3138598669),
-(300011, 1000151617,'carrera 52 #64-72','Ingenieria',25,3108321669),
-(300012, 1000151617,'carrera 36 #5-18','Diseño Grafico',25,3128996769);
+(300001, 106985161 , 'carrera 23 #54-12' , 'Medicina' , 25 , '3148514169'),
+(300002, 107845161 , 'calle 14 #75-19' , 'Ingenieria' , 25 , '3033594669'),
+(300003, 100015161 , 'calle 45 #25-14' , 'Derecho' , 25 , '3115696621'),
+(300004, 100094161 , 'calle 85 #26-41' , 'Desarrollo Software' , 25,'3007843211'),
+(300005, 100015161 , 'carrera 120 #73-89' , 'Medicina' , 25 , '3218694219'),
+(300006, 100016351 , 'carrera 6 #43-15' , 'Ingenieria', 25 , '3236946514'),
+(300007, 100087651 , 'calle 78 #51-82' , 'Medicina' , 25 , '3189665542'),
+(300008, 100096851 , 'carrera 10 #17-72' , 'Diseño Grafico' , 25 , '3145683669'),
+(300009, 100369741 , 'calle 69 #10-36' , 'Desarrollo Software' , 25 , '3148515669'),
+(300010, 104185961 , 'carrera 96 #78-94' , 'Medicina' , 25 , '3138598669'),
+(300011, 103321461 , 'carrera 52 #64-72' , 'Ingenieria' , 25 , '3108321669'),
+(300012, 109517531 , 'carrera 36 #5-18' , 'Diseño Grafico' ,25 , '3128996769');
 
 insert into libro(id,titulo,ideditorial,area)
 values
