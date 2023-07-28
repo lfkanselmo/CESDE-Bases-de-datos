@@ -153,6 +153,9 @@ use biblioteca
 
 alter table lector 
 add email varchar(30) null;
+go
+alter table lector
+add nombre varchar(30) null;
 
 --modificar registros
 update lector set email = 'ejemplo1@dominio.com' where idLector = 300001;
@@ -168,6 +171,24 @@ update lector set email = 'ejemplo10@dominio.com' where idLector = 300010;
 update lector set email = 'ejemplo11@dominio.com' where idLector = 300011;
 update lector set email = 'ejemplo12@dominio.com' where idLector = 300012;
 
+
+update lector set nombre = 'Manuel Herrera' where idLector = 300001;
+update lector set nombre = 'José Perez' where idLector = 300002;
+update lector set nombre = 'Miguel Lopez' where idLector = 300003;
+update lector set nombre = 'Sara Medina' where idLector = 300004;
+update lector set nombre = 'Julian Perea' where idLector = 300005;
+update lector set nombre = 'Sandra Calvo' where idLector = 300006;
+update lector set nombre = 'Susana Rodriguez' where idLector = 300007;
+update lector set nombre = 'Antonio Urregui' where idLector = 300008;
+update lector set nombre = 'Carlos Castaño' where idLector = 300009;
+update lector set nombre = 'Pedro Rojo' where idLector = 300010;
+update lector set nombre = 'Sebastian Hincapie' where idLector = 300011;
+update lector set nombre = 'Juliana Saenz' where idLector = 300012;
+
 --consultar los registros de la tabla
 select * from libro
-select carrera, edad, email from lector
+select * from autor
+select * from prestamo
+select * from editorial
+select * from libroautor
+select * from lector
