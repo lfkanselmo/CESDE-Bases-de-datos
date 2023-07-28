@@ -1,4 +1,4 @@
--- que es una restricción 
+-- que es una restricción (constraint)
 -- por qué son importantes
    
 /*
