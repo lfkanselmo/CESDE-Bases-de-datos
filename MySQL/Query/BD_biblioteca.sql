@@ -53,6 +53,8 @@ foreign key (idLector) references lector(idLector),
 foreign key (idLibros) references libro(id)
 )
 
+
+/*Insertar datos en las tablas*/
 use biblioteca
 
 insert into autor (idAutor, nombre, nacionalidad)
