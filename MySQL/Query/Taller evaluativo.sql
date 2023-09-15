@@ -150,16 +150,40 @@ add nombre varchar(20) default 'pendiente' not null,
 apellido varchar(20) default 'pendiente' not null,
 tel_fijo varchar(7)
 
+update cliente set nombre = 'Alexis', apellido = 'Lopez', tel_fijo = '3456789'where id_cliente = 10001;
+update cliente set nombre = 'Esteban', apellido = 'Yepes', tel_fijo = '3456745'where id_cliente = 10002;
+update cliente set nombre = 'Ana', apellido = 'Rojo', tel_fijo = '3456723'where id_cliente = 10003;
+update cliente set nombre = 'Lina', apellido = 'Cabello', tel_fijo = '3456714'where id_cliente = 10004;
+update cliente set nombre = 'Daniela', apellido = 'Medina', tel_fijo = '3456796'where id_cliente = 10005;
+update cliente set nombre = 'Manuela', apellido = 'Juno', tel_fijo = '3456774'where id_cliente = 10006;
+update cliente set nombre = 'Felipe', apellido = 'Sosa', tel_fijo = '3456720'where id_cliente = 10007;
+update cliente set nombre = 'Sara', apellido = 'Suarez', tel_fijo = '3456701'where id_cliente = 10008;
+update cliente set nombre = 'Miguel', apellido = 'Turbay', tel_fijo = '3456732'where id_cliente = 10009;
+update cliente set nombre = 'Luis', apellido = 'Betancour', tel_fijo = '3456719'where id_cliente = 10010;
+
 -- modificar la tabla articulo (nombre)
 alter table articulo
 add nombre varchar(20)
 
+update articulo set nombre = 'Jabon' where id_articulo = 30001;
+update articulo set nombre = 'Salsa' where id_articulo = 30002;
+update articulo set nombre = 'Maiz' where id_articulo = 30003;
+update articulo set nombre = 'Arroz' where id_articulo = 30004;
+update articulo set nombre = 'Lentejas' where id_articulo = 30005;
+update articulo set nombre = 'Crema dental' where id_articulo = 30006;
+update articulo set nombre = 'Mantequilla' where id_articulo = 30007;
+update articulo set nombre = 'Aceite' where id_articulo = 30008;
+update articulo set nombre = 'Salchichas' where id_articulo = 30009;
+update articulo set nombre = 'Garbanzos' where id_articulo = 30010;
 
 /* ------------ PUNTO 6 ------------ */
 
 -- Consultar todos las columnas y filas de cliente
 select * 
 from cliente
+
+select *
+from articulo
 
 -- Seleccionar columnas nombre e email de la tabla clientes
 select nombre, email
