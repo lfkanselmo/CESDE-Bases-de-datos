@@ -28,6 +28,7 @@ ISBN nvarchar(50) UNIQUE not null,
 AÑO_EDICION int CHECK(AÑO_EDICION > 1) not null,
 COD_EDITORIAL varchar(50) not null
 
+
 FOREIGN KEY (COD_EDITORIAL) REFERENCES EDITORIAL(EDITORIAL)
 ON DELETE CASCADE
 ON UPDATE CASCADE
@@ -176,15 +177,62 @@ FULL JOIN EDITORIAL ON LIBRO.COD_EDITORIAL = EDITORIAL.EDITORIAL
 ------------------------------ Pendiente ---------------------------------------
 
 
-CREATE PROCEDURE Agregar Libro(
- COD_LIBRO varchar(50) primary key not null,
- TITULO varchar(50) not null,
- SET ISBN nvarchar(50) UNIQUE not null,
-SET AÑO_EDICION int CHECK(AÑO_EDICION > 1) not null,
- SET COD_EDITORIAL varchar(50)
-)
+--Pregunta 6 
+--¿Cómo se usan los procedimientos almacenados con parámetros de entrada y salida?
+
+--Creación: Primero, debes crear el procedimiento almacenado en la base de datos. Esto se hace generalmente mediante SQL
+
+--Ejecución: Luego, puedes ejecutar el procedimiento almacenado y pasar los parámetros de entrada. También puedes especificar parámetros de salida si es necesario.
+
+--Resultados: Los procedimientos almacenados pueden devolver valores a través de los parámetros de salida que puedes utilizar en tu aplicación
+
+
+---------------------------------------------------//----------------------------------------
+
+--¿Por qué son importantes los procedimientos almacenados?
+
+--Los procedimientos almacenados ofrecen varias ventajas importantes:
+
+--Optimización del rendimiento: Los procedimientos almacenados se almacenan en la base de datos, lo que significa que se compilan una vez y se pueden reutilizar muchas veces. Esto reduce la necesidad de transmitir grandes cantidades de datos entre la aplicación y la base de datos, lo que mejora el rendimiento.
+
+--Seguridad: Los procedimientos almacenados permiten controlar quién tiene acceso a la base de datos y qué operaciones pueden realizar. Esto ayuda a proteger la integridad y seguridad de los datos.
+
+--Mantenimiento: Los cambios en la lógica de la base de datos se pueden realizar en un solo lugar (el procedimiento almacenado) en lugar de en múltiples lugares dispersos en el código de la aplicación.
+
+--Reutilización de código: Los procedimientos almacenados se pueden llamar desde múltiples partes de una aplicación, lo que fomenta la reutilización del código y evita duplicación innecesaria.
+
+--Facilita la administración de transacciones: Los procedimientos almacenados pueden incluir transacciones SQL, lo que facilita la administración de operaciones complejas que deben ser atómicas (es decir, que se ejecutan completamente o no se ejecutan en absoluto).
+
+
+--------------------------------------------------//---------------------------------------------
+
+-- PROCEDIMIENTO PARA BUSCAR AUTORES QUE TENGAN EDAD MENOR O IGUAL A LA DADA COMO PARAMETRO
+CREATE PROCEDURE autoresMenoresQue (@edad int)
 AS
 BEGIN
-    INSERT INTO LIBRO(COD_LIBRO, TITULO, ISBN, AÑO_EDICION, COD_EDITORIAL)
-    VALUES (@Titulo, @Autor, @AnioPublicacion)
+	SELECT AUTOR.P_NOMBRE, AUTOR.P_APELLIDO, AUTOR.EDAD
+	FROM AUTOR
+	WHERE AUTOR.EDAD <= @edad
 END
+GO
+
+EXECUTE autoresMenoresQue 50
+
+
+-- PROCEDIMIENTO PARA SABER CUANTOS LIBROS HA ESCRITO UN AUTOR ESPECIFICO
+CREATE PROCEDURE cuantosLibrosPorAutor(
+@autor VARCHAR(50)
+,@conta INT OUTPUT)
+AS
+BEGIN
+	SELECT @conta = COUNT(LIBRO.TITULO)
+	FROM LIBRO
+	LEFT JOIN DETALLE_AUTORLIBRO ON LIBRO.COD_LIBRO = DETALLE_AUTORLIBRO.COD_LIBRO
+	LEFT JOIN AUTOR ON DETALLE_AUTORLIBRO.COD_AUTOR = AUTOR.COD_AUTOR
+	WHERE AUTOR.COD_AUTOR = @autor
+END
+GO
+
+DECLARE @counta AS INT
+EXECUTE cuantosLibrosPorAutor 'CC003', @counta OUTPUT
+SELECT @counta AS 'Cantidad de libros'
